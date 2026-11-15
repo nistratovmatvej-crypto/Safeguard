@@ -36,7 +36,7 @@ export async function dataRoutes(app: FastifyInstance) {
     const params = z.object({id:z.string().min(1)}).safeParse(request.params);
     if(!params.success) return reply.code(400).send({error:'INVALID_ID'});
     const result = await prisma.subscription.deleteMany({where:{id:params.data.id,userId:getAuthUser(request).id}});
-    return result.count ? {ok:true} : reply.code(404).send({error:'NOT_FOUND'};
+    return result.count ? {ok:true} : reply.code(404).send({error:'NOT_FOUND'});
   });
   app.post('/reminders', { preHandler: requireAuth }, async (request, reply) => {
     const parsed = z.object({ type:z.string().min(1).max(40), title:z.string().trim().min(1).max(180), dueAt:date }).safeParse(request.body);
