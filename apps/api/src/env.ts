@@ -9,6 +9,7 @@ const schema = z.object({
   TELEGRAM_BOT_TOKEN: z.string().min(20),
   SESSION_SECRET: z.string().min(32),
   WEB_ORIGIN: z.string().url().default('http://localhost:5173'),
+  MINI_APP_URL: z.string().url().optional(),
   TELEGRAM_INITDATA_MAX_AGE_SECONDS: z.coerce.number().int().positive().default(600)
 });
 export const env = schema.parse(process.env);
