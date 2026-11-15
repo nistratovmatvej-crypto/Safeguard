@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model User {
+  id String @id @default(cuid())
+  telegramId String @unique
+  username String?
+  firstName String
+  lastName String?
+  languageCode String @default("en")
+  photoUrl String?
+  currency String @default("EUR")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  purchases Purchase[]
+  subscriptions Subscription[]
+  sessions Session[]
+  reminders Reminder[]
+}
+model Session {
+  id String @id @default(cuid())
+  tokenHash String @unique
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  @@index([userId, expiresAt])
+}
+model Purchase {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title String
+  merchant String?
+  amountMinor Int
+  currency String
+  purchasedAt DateTime
+  returnUntil DateTime?
+  warrantyUntil DateTime?
+  status String @default("ACTIVE")
+  receiptFileKey String?
+  notes String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([userId, returnUntil])
+}
+model Subscription {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name String
+  amountMinor Int
+  currency String
+  interval String
+  nextPaymentAt DateTime
+  trialEndsAt DateTime?
+  status String @default("ACTIVE")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([userId, nextPaymentAt])
+}
+model Reminder {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type String
+  title String
+  dueAt DateTime
+  sentAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([sentAt, dueAt])
+}
