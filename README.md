@@ -10,7 +10,7 @@ Telegram Mini App + Node.js API. The backend uses Fastify, PostgreSQL and Prisma
 
 ## Local setup
 1. Copy .env.example to .env.
-2. Set DATABASE_URL, TELEGRAM_BOT_TOKEN and a random SESSION_SECRET (32+ characters).
+2. Create a Supabase project. In Project → Connect, copy the Session pooler connection string (port 5432). Put it in DATABASE_URL and DIRECT_URL in .env. Set TELEGRAM_BOT_TOKEN and a random SESSION_SECRET (32+ characters).
 3. Start local PostgreSQL: docker compose up -d
 4. npm install
 5. npm run db:generate
