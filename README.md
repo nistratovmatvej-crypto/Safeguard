@@ -30,7 +30,7 @@ Health check: http://localhost:3000/health
 - POST /api/v1/ocr/receipt
 
 ## Telegram limitation
-The bot token is a server secret. Users must start the bot once before it can send them notifications. The current archive is an API backend, not a complete Mini App frontend or a complete Telegram command bot.
+The bot token is a server secret. Users must start the bot once before it can send them notifications. A basic Telegram command responder is included for /start, /help, /dashboard, /deadline, /subzero, /calendar and /settings. The full React Mini App frontend is still not included.
 
 ## Not production-ready yet
 No production database is connected, migrations and tests have not been run, and deployment secrets/HTTPS/monitoring must be configured. The React Mini App source still needs to be added and connected to these API routes. OCR language assets need provisioning in deployment.
