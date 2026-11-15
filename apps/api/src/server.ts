@@ -18,13 +18,34 @@ await app.register(cookie);
 await app.register(multipart, { limits: { fileSize: 8 * 1024 * 1024, files: 1 } });
 await app.register(cors, { origin: env.WEB_ORIGIN, credentials: true });
 await app.register(rateLimit, { max: 100, timeWindow: '1 minute' });
-app.get('/health', async (_request, reply) => {\n  try { await prisma.$queryRaw\`SELECT 1\`; return { ok:true, database:'connected', service:'saveguard-api' }; }\n  catch { return reply.code(503).send({ ok:false, database:'disconnected', service:'saveguard-api' }); }\n});
-await app.register(authRoutes, { prefix:'/api/v1' });
-await app.register(dataRoutes, { prefix:'/api/v1' });
-await app.register(ocrRoutes, { prefix:'/api/v1' });
-const stopNotifications = startNotificationWorker();\nconst stopBot = startTelegramBot();
+app.get('/health', async (_request, reply) => {
+  try {
+    await prisma.$queryRawUnsafe('SELECT 1');
+    return { ok: true, database: 'connected', service: 'saveguard-api' };
+  } catch {
+    return reply.code(503).send({ ok: false, database: 'disconnected', service: 'saveguard-api' });
+  }
+});
+await app.register(authRoutes, { prefix: '/api/v1' });
+await app.register(dataRoutes, { prefix: '/api/v1' });
+await app.register(ocrRoutes, { prefix: '/api/v1' });
+const stopNotifications = startNotificationWorker();
+const stopBot = startTelegramBot();
 
-const close = async () => { stopNotifications(); stopBot(); await app.close(); await prisma.$disconnect(); process.exit(0); };
-process.on('SIGINT', close); process.on('SIGTERM', close);
-try { await app.listen({ host:env.HOST, port:env.PORT }); }
-catch (error) { app.log.error(error); await prisma.$disconnect(); process.exit(1); }
+const close = async () => {
+  stopNotifications();
+  stopBot();
+  await app.close();
+  await prisma.$disconnect();
+  process.exit(0);
+};
+process.on('SIGINT', close);
+process.on('SIGTERM', close);
+
+try {
+  await app.listen({ host: env.HOST, port: env.PORT });
+} catch (error) {
+  app.log.error(error);
+  await prisma.$disconnect();
+  process.exit(1);
+}
