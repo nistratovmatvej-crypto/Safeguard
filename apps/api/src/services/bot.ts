@@ -247,7 +247,7 @@ async function sendTutorialStep(chatId: number, lang: Language, step: number) {
   const t = tutorialCopy[lang];
   await telegram('sendMessage', {
     chat_id: chatId,
-    text: '<b>' + t.title + ' · ' + (step + 1) + '/4</b>\\n\\n' + (t.steps[step] ?? t.steps[0]),
+    text: '<b>' + t.title + ' · ' + (step + 1) + '/4</b>\n\n' + (t.steps[step] ?? t.steps[0]),
     parse_mode: 'HTML',
     reply_markup: tutorialKeyboard(lang, step)
   });
@@ -278,7 +278,7 @@ async function handleTutorialCallback(query: NonNullable<Update['callback_query'
   await telegram('editMessageText', {
     chat_id: query.message.chat.id,
     message_id: query.message.message_id,
-    text: '<b>' + t.title + ' · ' + (step + 1) + '/4</b>\\n\\n' + (t.steps[step] ?? t.steps[0]),
+    text: '<b>' + t.title + ' · ' + (step + 1) + '/4</b>\n\n' + (t.steps[step] ?? t.steps[0]),
     parse_mode: 'HTML',
     reply_markup: tutorialKeyboard(lang, step)
   });
