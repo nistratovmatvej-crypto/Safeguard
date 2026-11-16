@@ -21,7 +21,7 @@ const languages: { code: Language; label: string }[] = [
 
 type Translation = {
   welcome: string; help: string; dashboard: string; deadline: string; subzero: string;
-  calendar: string; settings: string; language: string; languageSaved: string; open: string;
+  calendar: string; settings: string; language: string; languageSaved: string; languageAuto: string; open: string;
   dashboardBtn: string; deadlineBtn: string; subzeroBtn: string; calendarBtn: string;
   settingsBtn: string; helpBtn: string;
 };
