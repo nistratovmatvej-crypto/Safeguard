@@ -14,15 +14,15 @@ async function telegram(method: string, body: Record<string, unknown>) {
 
 function responseFor(command: string, firstName: string, miniAppUrl?: string) {
   const copy: Record<string, string> = {
-    start: `🛡 SAVEGUARD\n\nYour money. Protected.\n\nПривет, ${firstName}! Я помогу следить за подписками, покупками, сроками возврата и гарантиями.\n\nПока приложение подключается, вот доступные разделы:\n/deadline — покупки и возвраты\n/subzero — подписки и платежи\n/calendar — финансовый календарь\n/dashboard — обзор\n/help — помощь`,
-    help: 'SAVEGUARD help\n/start — welcome\n/dashboard — overview\n/deadline — purchases and return deadlines\n/subzero — subscriptions\n/calendar — financial calendar\n/settings — settings',
-    dashboard: '📊 SAVEGUARD dashboard\nYour personal dashboard will appear here when the Mini App frontend is connected.',
-    deadline: '🧾 DEADLINE\nTrack purchases, receipts, return windows and warranty dates. Add and manage records in the SAVEGUARD app.',
-    subzero: '❄️ SUBZERO\nTrack recurring payments, free trials and subscription costs. Manage records in the SAVEGUARD app.',
-    calendar: '🗓 Financial calendar\nUpcoming return deadlines, warranty dates and subscription payments will be shown in the app.',
-    settings: '⚙️ Settings\nLanguage and preferred currency settings will be available in the SAVEGUARD app.'
+    start: `🛡 SAVEGUARD\\n\\nYour money. Protected.\\n\\nПривет, ${firstName}! Я помогу следить за подписками, покупками, сроками возврата и гарантиями.\\n\\nПока приложение подключается, вот доступные разделы:\\n/deadline — покупки и возвраты\\n/subzero — подписки и платежи\\n/calendar — финансовый календарь\\n/dashboard — обзор\\n/help — помощь`,
+    help: 'SAVEGUARD help\\n/start — welcome\\n/dashboard — overview\\n/deadline — purchases and return deadlines\\n/subzero — subscriptions\\n/calendar — financial calendar\\n/settings — settings',
+    dashboard: '📊 SAVEGUARD dashboard\\nYour personal dashboard will appear here when the Mini App frontend is connected.',
+    deadline: '🧾 DEADLINE\\nTrack purchases, receipts, return windows and warranty dates. Add and manage records in the SAVEGUARD app.',
+    subzero: '❄️ SUBZERO\\nTrack recurring payments, free trials and subscription costs. Manage records in the SAVEGUARD app.',
+    calendar: '🗓 Financial calendar\\nUpcoming return deadlines, warranty dates and subscription payments will be shown in the app.',
+    settings: '⚙️ Settings\\nLanguage and preferred currency settings will be available in the SAVEGUARD app.'
   };
-  const key = command.replace(/^\//, '').split('@')[0].toLowerCase();
+  const key = (command.replace(/^\\//, '').split('@')[0] ?? '').toLowerCase();
   const text = copy[key] ?? copy.help;
   const reply_markup = miniAppUrl ? { inline_keyboard: [[{ text: 'Open SAVEGUARD', web_app: { url: miniAppUrl } }]] } : undefined;
   return { text, ...(reply_markup ? { reply_markup } : {}) };
@@ -31,7 +31,7 @@ function responseFor(command: string, firstName: string, miniAppUrl?: string) {
 async function handle(update: Update) {
   const message = update.message;
   if (!message?.text) return;
-  const command = message.text.trim().split(/\s+/)[0];
+  const command = message.text.trim().split(/\\s+/)[0] ?? '';
   if (!command.startsWith('/')) return;
   const firstName = message.from?.first_name ?? 'there';
   const answer = responseFor(command, firstName, env.MINI_APP_URL);
