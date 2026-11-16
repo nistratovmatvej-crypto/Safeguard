@@ -226,7 +226,7 @@ async function handleMessage(update: NonNullable<Update['message']>) {
   if (command === 'start') {
     const name = message.from.first_name ?? 'there';
     const text = copy[lang].welcome.replace('{name}', name);
-    await send(message.chat.id, text, lang, { reply_markup: keyboard(lang) });
+    await send(message.chat.id, text, lang);
     return;
   }
   if (command === 'help' || commandNames.includes(command as Command)) {
