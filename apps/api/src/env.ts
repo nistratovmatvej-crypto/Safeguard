@@ -10,6 +10,8 @@ const schema = z.object({
   SESSION_SECRET: z.string().min(32),
   WEB_ORIGIN: z.string().url().default('http://localhost:5173'),
   MINI_APP_URL: z.string().url().optional(),
+  WELCOME_GIF_URL: z.string().url().optional(),
+  SAVEGUARD_PREMIUM_EMOJI_ID: z.string().regex(/^\\d+$/).optional(),
   TELEGRAM_INITDATA_MAX_AGE_SECONDS: z.coerce.number().int().positive().default(600)
 });
 export const env = schema.parse(process.env);
