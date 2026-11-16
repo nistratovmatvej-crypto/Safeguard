@@ -19,7 +19,14 @@ const languages: { code: Language; label: string }[] = [
   { code: 'pt', label: '🇵🇹 Português' }, { code: 'tr', label: '🇹🇷 Türkçe' }
 ];
 
-const copy: Record<Language, Record<string, string>> = {
+type Translation = {
+  welcome: string; help: string; dashboard: string; deadline: string; subzero: string;
+  calendar: string; settings: string; language: string; languageSaved: string; open: string;
+  dashboardBtn: string; deadlineBtn: string; subzeroBtn: string; calendarBtn: string;
+  settingsBtn: string; helpBtn: string;
+};
+
+const copy: Record<Language, Translation> = {
   ru: {
     welcome: 'SAVEGUARD\nYour money. Protected.\n\nПривет, {name}! Я помогу следить за покупками, сроками возврата, гарантиями и подписками.\n\nВыбери нужный раздел кнопкой ниже.',
     help: 'Помощь SAVEGUARD\nВыбери раздел в меню ниже или используй команды:\n/start — главное меню\n/dashboard — обзор\n/deadline — покупки и возвраты\n/subzero — подписки\n/calendar — финансовый календарь\n/settings — настройки',
@@ -237,6 +244,7 @@ async function handleMessage(update: NonNullable<Update['message']>) {
 
 async function handleCallback(query: NonNullable<Update['callback_query']>) {
   if (!query.data?.startsWith('lang:') || !query.message) return;
+  const chatId = query.message.chat.id;
   const selected = languageOf(query.data.slice(5));
   await prisma.user.upsert({
     where: { telegramId: String(query.from.id) },
@@ -244,7 +252,7 @@ async function handleCallback(query: NonNullable<Update['callback_query']>) {
     update: { languageCode: selected, firstName: query.from.first_name ?? 'there' }
   });
   await telegram('answerCallbackQuery', { callback_query_id: query.id, text: copy[selected].languageSaved });
-  await send(query.message.chat.id, copy[selected].languageSaved + '\n\n' + copy[selected].welcome.replace('{name}', query.from.first_name ?? 'there'), selected);
+  await send(chatId, copy[selected].languageSaved + '\n\n' + copy[selected].welcome.replace('{name}', query.from.first_name ?? 'there'), selected);
 }
 
 async function registerTelegramMenu() {
