@@ -13,6 +13,7 @@ model User {
   firstName String
   lastName String?
   languageCode String @default("en")
+  languageManuallySelected Boolean @default(false)
   photoUrl String?
   currency String @default("EUR")
   createdAt DateTime @default(now())
