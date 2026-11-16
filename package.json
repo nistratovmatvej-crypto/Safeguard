@@ -3,7 +3,10 @@
   "private": true,
   "version": "0.3.0",
   "type": "module",
-  "workspaces": ["apps/api", "packages/database"],
+  "workspaces": [
+    "apps/api",
+    "packages/database"
+  ],
   "scripts": {
     "dev": "npm run dev -w @saveguard/api",
     "build": "npm run build -w @saveguard/api",
@@ -11,6 +14,7 @@
     "db:generate": "npm run db:generate -w @saveguard/database",
     "db:migrate": "npm run db:migrate -w @saveguard/database",
     "db:deploy": "npm run db:deploy -w @saveguard/database",
-    "db:studio": "npm run db:studio -w @saveguard/database"
+    "db:studio": "npm run db:studio -w @saveguard/database",
+    "db:push": "npm run db:push -w @saveguard/database"
   }
 }
