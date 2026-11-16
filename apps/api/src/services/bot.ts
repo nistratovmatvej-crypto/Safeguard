@@ -31,8 +31,8 @@ const copy: Record<Language, Translation> = {
     welcome: 'SAVEGUARD\nYour money. Protected.\n\nПривет, {name}! Я помогу следить за покупками, сроками возврата, гарантиями и подписками.\n\nВыбери нужный раздел кнопкой ниже.',
     help: 'Помощь SAVEGUARD\nВыбери раздел в меню ниже или используй команды:\n/start — главное меню\n/dashboard — обзор\n/deadline — покупки и возвраты\n/subzero — подписки\n/calendar — финансовый календарь\n/settings — настройки',
     dashboard: 'Обзор SAVEGUARD\nЛичная финансовая панель появится здесь после подключения Mini App.',
-    deadline: 'DEADLINE\nХрани покупки, чеки, сроки возврата и гарантии. Управление записями будет доступно в приложении.',
-    subzero: 'SUBZERO\nСледи за подписками, пробными периодами и регулярными платежами. Управление будет доступно в приложении.',
+    deadline: 'Покупки и возвраты\nСохраняй покупки и чеки, следи за сроками возврата и гарантией. Управление записями будет доступно в приложении.',
+    subzero: 'Подписки и платежи\nСледи за подписками, пробными периодами и регулярными списаниями. Управление будет доступно в приложении.',
     calendar: 'Финансовый календарь\nЗдесь будут отображаться сроки возврата, гарантии и даты платежей.',
     settings: 'Настройки\nВыбери язык интерфейса. Валюту можно будет настроить в приложении.',
     language: 'Выбери язык SAVEGUARD:',
@@ -44,8 +44,8 @@ const copy: Record<Language, Translation> = {
     welcome: 'SAVEGUARD\nYour money. Protected.\n\nHi, {name}! I help you track purchases, return windows, warranties and subscriptions.\n\nChoose a section using the buttons below.',
     help: 'SAVEGUARD help\nChoose a section below or use commands:\n/start — main menu\n/dashboard — overview\n/deadline — purchases and returns\n/subzero — subscriptions\n/calendar — financial calendar\n/settings — settings',
     dashboard: 'SAVEGUARD dashboard\nYour personal financial overview will appear here when the Mini App is connected.',
-    deadline: 'DEADLINE\nKeep track of purchases, receipts, return windows and warranty dates. Record management will be available in the app.',
-    subzero: 'SUBZERO\nTrack subscriptions, free trials and recurring payments. Management will be available in the app.',
+    deadline: 'Purchases and returns\nSave purchases and receipts, and keep track of return windows and warranty dates. Record management will be available in the app.',
+    subzero: 'Subscriptions and payments\nTrack subscriptions, free trials and recurring payments. Management will be available in the app.',
     calendar: 'Financial calendar\nReturn deadlines, warranty dates and upcoming payments will appear here.',
     settings: 'Settings\nChoose your interface language. Currency settings will be available in the app.',
     language: 'Choose your SAVEGUARD language:',
@@ -57,8 +57,8 @@ const copy: Record<Language, Translation> = {
     welcome: 'SAVEGUARD\nDein Geld. Geschützt.\n\nHallo, {name}! Ich helfe dir, Käufe, Rückgabefristen, Garantien und Abonnements im Blick zu behalten.\n\nWähle unten einen Bereich aus.',
     help: 'SAVEGUARD-Hilfe\nWähle unten einen Bereich oder nutze die Befehle:\n/start — Hauptmenü\n/dashboard — Übersicht\n/deadline — Käufe und Rückgaben\n/subzero — Abonnements\n/calendar — Finanzkalender\n/settings — Einstellungen',
     dashboard: 'SAVEGUARD-Übersicht\nDeine persönliche Finanzübersicht erscheint hier, sobald die Mini App verbunden ist.',
-    deadline: 'DEADLINE\nBehalte Käufe, Belege, Rückgabefristen und Garantien im Blick. Die Verwaltung erfolgt in der App.',
-    subzero: 'SUBZERO\nBehalte Abonnements, Testzeiträume und wiederkehrende Zahlungen im Blick.',
+    deadline: 'Käufe und Rückgaben\nBehalte Käufe, Belege, Rückgabefristen und Garantien im Blick. Die Verwaltung erfolgt in der App.',
+    subzero: 'Abonnements und Zahlungen\nBehalte Abonnements, Testzeiträume und wiederkehrende Zahlungen im Blick.',
     calendar: 'Finanzkalender\nHier erscheinen Rückgabefristen, Garantietermine und anstehende Zahlungen.',
     settings: 'Einstellungen\nWähle deine Sprache. Die Währung kannst du später in der App festlegen.',
     language: 'Wähle deine SAVEGUARD-Sprache:',
@@ -70,8 +70,8 @@ const copy: Record<Language, Translation> = {
     welcome: 'SAVEGUARD\nTu dinero. Protegido.\n\n¡Hola, {name}! Te ayudo a controlar compras, plazos de devolución, garantías y suscripciones.\n\nElige una sección abajo.',
     help: 'Ayuda de SAVEGUARD\nElige una sección o usa los comandos:\n/start — menú principal\n/dashboard — resumen\n/deadline — compras y devoluciones\n/subzero — suscripciones\n/calendar — calendario financiero\n/settings — ajustes',
     dashboard: 'Panel SAVEGUARD\nTu resumen financiero aparecerá aquí cuando se conecte la Mini App.',
-    deadline: 'DEADLINE\nControla compras, recibos, plazos de devolución y garantías. La gestión estará disponible en la aplicación.',
-    subzero: 'SUBZERO\nControla suscripciones, pruebas gratuitas y pagos periódicos.',
+    deadline: 'Compras y devoluciones\nGuarda compras y recibos, y controla los plazos de devolución y las garantías. La gestión estará disponible en la aplicación.',
+    subzero: 'Suscripciones y pagos\nControla suscripciones, pruebas gratuitas y pagos periódicos.',
     calendar: 'Calendario financiero\nAquí aparecerán las fechas de devolución, garantías y próximos pagos.',
     settings: 'Ajustes\nElige el idioma de la interfaz. La moneda se podrá configurar en la aplicación.',
     language: 'Elige el idioma de SAVEGUARD:',
@@ -83,8 +83,8 @@ const copy: Record<Language, Translation> = {
     welcome: 'SAVEGUARD\nVotre argent. Protégé.\n\nBonjour, {name} ! Je vous aide à suivre vos achats, délais de retour, garanties et abonnements.\n\nChoisissez une rubrique ci-dessous.',
     help: 'Aide SAVEGUARD\nChoisissez une rubrique ou utilisez les commandes :\n/start — menu principal\n/dashboard — aperçu\n/deadline — achats et retours\n/subzero — abonnements\n/calendar — calendrier financier\n/settings — paramètres',
     dashboard: 'Tableau de bord SAVEGUARD\nVotre aperçu financier apparaîtra ici lorsque la Mini App sera connectée.',
-    deadline: 'DEADLINE\nSuivez vos achats, reçus, délais de retour et garanties. La gestion sera disponible dans l’application.',
-    subzero: 'SUBZERO\nSuivez vos abonnements, essais gratuits et paiements récurrents.',
+    deadline: 'Achats et retours\nEnregistrez vos achats et reçus, et suivez les délais de retour et les garanties. La gestion sera disponible dans l’application.',
+    subzero: 'Abonnements et paiements\nSuivez vos abonnements, essais gratuits et paiements récurrents.',
     calendar: 'Calendrier financier\nLes dates de retour, garanties et prochains paiements apparaîtront ici.',
     settings: 'Paramètres\nChoisissez la langue de l’interface. La devise sera configurable dans l’application.',
     language: 'Choisissez la langue de SAVEGUARD :',
@@ -96,8 +96,8 @@ const copy: Record<Language, Translation> = {
     welcome: 'SAVEGUARD\nI tuoi soldi. Protetti.\n\nCiao, {name}! Ti aiuto a tenere sotto controllo acquisti, resi, garanzie e abbonamenti.\n\nScegli una sezione qui sotto.',
     help: 'Aiuto SAVEGUARD\nScegli una sezione o usa i comandi:\n/start — menu principale\n/dashboard — riepilogo\n/deadline — acquisti e resi\n/subzero — abbonamenti\n/calendar — calendario finanziario\n/settings — impostazioni',
     dashboard: 'Dashboard SAVEGUARD\nIl tuo riepilogo finanziario apparirà qui quando la Mini App sarà collegata.',
-    deadline: 'DEADLINE\nTieni traccia di acquisti, ricevute, termini di reso e garanzie. La gestione sarà disponibile nell’app.',
-    subzero: 'SUBZERO\nTieni sotto controllo abbonamenti, prove gratuite e pagamenti ricorrenti.',
+    deadline: 'Acquisti e resi\nSalva acquisti e ricevute e controlla i termini di reso e le garanzie. La gestione sarà disponibile nell’app.',
+    subzero: 'Abbonamenti e pagamenti\nTieni sotto controllo abbonamenti, prove gratuite e pagamenti ricorrenti.',
     calendar: 'Calendario finanziario\nQui appariranno scadenze dei resi, garanzie e prossimi pagamenti.',
     settings: 'Impostazioni\nScegli la lingua dell’interfaccia. La valuta sarà configurabile nell’app.',
     language: 'Scegli la lingua di SAVEGUARD:',
@@ -109,8 +109,8 @@ const copy: Record<Language, Translation> = {
     welcome: 'SAVEGUARD\nSeu dinheiro. Protegido.\n\nOlá, {name}! Ajudo você a acompanhar compras, prazos de devolução, garantias e assinaturas.\n\nEscolha uma seção abaixo.',
     help: 'Ajuda SAVEGUARD\nEscolha uma seção ou use os comandos:\n/start — menu principal\n/dashboard — visão geral\n/deadline — compras e devoluções\n/subzero — assinaturas\n/calendar — calendário financeiro\n/settings — configurações',
     dashboard: 'Painel SAVEGUARD\nSeu resumo financeiro aparecerá aqui quando o Mini App estiver conectado.',
-    deadline: 'DEADLINE\nAcompanhe compras, recibos, prazos de devolução e garantias. A gestão estará disponível no aplicativo.',
-    subzero: 'SUBZERO\nAcompanhe assinaturas, testes gratuitos e pagamentos recorrentes.',
+    deadline: 'Compras e devoluções\nGuarde compras e recibos e acompanhe os prazos de devolução e as garantias. A gestão estará disponível no aplicativo.',
+    subzero: 'Assinaturas e pagamentos\nAcompanhe assinaturas, testes gratuitos e pagamentos recorrentes.',
     calendar: 'Calendário financeiro\nOs prazos de devolução, garantias e próximos pagamentos aparecerão aqui.',
     settings: 'Configurações\nEscolha o idioma da interface. A moeda poderá ser configurada no aplicativo.',
     language: 'Escolha o idioma do SAVEGUARD:',
@@ -122,8 +122,8 @@ const copy: Record<Language, Translation> = {
     welcome: 'SAVEGUARD\nParanız. Güvende.\n\nMerhaba, {name}! Alışverişlerinizi, iade sürelerini, garantileri ve abonelikleri takip etmenize yardımcı olurum.\n\nAşağıdan bir bölüm seçin.',
     help: 'SAVEGUARD yardımı\nAşağıdan bir bölüm seçin veya komutları kullanın:\n/start — ana menü\n/dashboard — genel bakış\n/deadline — alışveriş ve iadeler\n/subzero — abonelikler\n/calendar — finans takvimi\n/settings — ayarlar',
     dashboard: 'SAVEGUARD paneli\nMini App bağlandığında kişisel finans özetiniz burada görünecek.',
-    deadline: 'DEADLINE\nAlışverişleri, fişleri, iade sürelerini ve garantileri takip edin. Kayıt yönetimi uygulamada sunulacak.',
-    subzero: 'SUBZERO\nAbonelikleri, ücretsiz denemeleri ve düzenli ödemeleri takip edin.',
+    deadline: 'Alışverişler ve iadeler\nAlışverişlerinizi ve fişlerinizi kaydedin; iade sürelerini ve garantileri takip edin. Kayıt yönetimi uygulamada sunulacak.',
+    subzero: 'Abonelikler ve ödemeler\nAbonelikleri, ücretsiz denemeleri ve düzenli ödemeleri takip edin.',
     calendar: 'Finans takvimi\nİade tarihleri, garanti süreleri ve yaklaşan ödemeler burada gösterilecek.',
     settings: 'Ayarlar\nArayüz dilini seçin. Para birimi uygulamada ayarlanabilecek.',
     language: 'SAVEGUARD dilini seçin:',
@@ -147,9 +147,9 @@ const tutorialCopy: Record<Language, TutorialCopy> = {
   ru: {
     title: 'БЫСТРЫЙ СТАРТ',
     steps: [
-      '<b>1. Добавь покупку</b>\nОткрой DEADLINE и сохрани название товара, магазин, цену и дату покупки. Позже можно будет прикрепить чек.',
+      '<b>1. Добавь покупку</b>\nОткрой раздел «Покупки и возвраты» и сохрани товар, магазин, цену и дату покупки. Позже можно будет прикрепить чек.',
       '<b>2. Защити свои покупки</b>\nУкажи последний день возврата и дату окончания гарантии. SAVEGUARD поможет не забыть важные сроки.',
-      '<b>3. Контролируй подписки</b>\nВ SUBZERO добавь сервис, стоимость, период оплаты и дату следующего списания. Отдельно отметь пробный период.',
+      '<b>3. Контролируй подписки</b>\nВ разделе «Подписки и платежи» добавь сервис, стоимость, период оплаты и дату следующего списания. Отдельно отметь пробный период.',
       '<b>4. Не пропускай важное</b>\nПроверяй финансовый календарь и настрой напоминания. Язык можно изменить в настройках бота.'
     ],
     next: 'Далее →', back: '← Назад', finish: 'Готово ✓',
@@ -158,9 +158,9 @@ const tutorialCopy: Record<Language, TutorialCopy> = {
   en: {
     title: 'QUICK START',
     steps: [
-      '<b>1. Add a purchase</b>\nOpen DEADLINE and save the item, store, price and purchase date. You will be able to attach a receipt.',
+      '<b>1. Add a purchase</b>\nOpen Purchases and returns and save the item, store, price and purchase date. You will be able to attach a receipt.',
       '<b>2. Protect your purchases</b>\nSet the last return date and warranty expiry. SAVEGUARD helps you keep important dates in sight.',
-      '<b>3. Track subscriptions</b>\nIn SUBZERO, add the service, price, billing interval and next payment date. Mark free trials too.',
+      '<b>3. Track subscriptions</b>\nIn Subscriptions and payments, add the service, price, billing interval and next payment date. Mark free trials too.',
       '<b>4. Stay on top of things</b>\nCheck your financial calendar and enable reminders. You can change the bot language in Settings.'
     ],
     next: 'Next →', back: '← Back', finish: 'Finish ✓',
@@ -169,9 +169,9 @@ const tutorialCopy: Record<Language, TutorialCopy> = {
   de: {
     title: 'SCHNELLSTART',
     steps: [
-      '<b>1. Kauf hinzufügen</b>\nÖffne DEADLINE und speichere Produkt, Geschäft, Preis und Kaufdatum. Einen Beleg kannst du später anhängen.',
+      '<b>1. Kauf hinzufügen</b>\nÖffne «Käufe und Rückgaben» und speichere Produkt, Geschäft, Preis und Kaufdatum. Einen Beleg kannst du später anhängen.',
       '<b>2. Käufe absichern</b>\nLege die Rückgabefrist und das Garantieende fest. SAVEGUARD hilft dir, wichtige Termine im Blick zu behalten.',
-      '<b>3. Abos verfolgen</b>\nFüge in SUBZERO Dienst, Preis, Zahlungsintervall und nächste Zahlung hinzu. Markiere auch kostenlose Testphasen.',
+      '<b>3. Abos verfolgen</b>\nFüge unter «Abonnements und Zahlungen» Dienst, Preis, Zahlungsintervall und nächste Zahlung hinzu. Markiere auch kostenlose Testphasen.',
       '<b>4. Nichts verpassen</b>\nPrüfe deinen Finanzkalender und aktiviere Erinnerungen. Die Sprache änderst du in den Einstellungen.'
     ],
     next: 'Weiter →', back: '← Zurück', finish: 'Fertig ✓',
@@ -180,9 +180,9 @@ const tutorialCopy: Record<Language, TutorialCopy> = {
   es: {
     title: 'INICIO RÁPIDO',
     steps: [
-      '<b>1. Añade una compra</b>\nAbre DEADLINE y guarda el producto, la tienda, el precio y la fecha. Después podrás adjuntar el recibo.',
+      '<b>1. Añade una compra</b>\nAbre «Compras y devoluciones» y guarda el producto, la tienda, el precio y la fecha. Después podrás adjuntar el recibo.',
       '<b>2. Protege tus compras</b>\nIndica la fecha límite de devolución y el fin de la garantía. SAVEGUARD te ayudará a recordar las fechas importantes.',
-      '<b>3. Controla tus suscripciones</b>\nEn SUBZERO añade el servicio, el precio, la frecuencia y la próxima fecha de pago. Incluye las pruebas gratuitas.',
+      '<b>3. Controla tus suscripciones</b>\nEn «Suscripciones y pagos» añade el servicio, el precio, la frecuencia y la próxima fecha de pago. Incluye las pruebas gratuitas.',
       '<b>4. No olvides nada</b>\nConsulta el calendario financiero y activa los recordatorios. Puedes cambiar el idioma en Ajustes.'
     ],
     next: 'Siguiente →', back: '← Atrás', finish: 'Terminar ✓',
@@ -191,9 +191,9 @@ const tutorialCopy: Record<Language, TutorialCopy> = {
   fr: {
     title: 'PRISE EN MAIN',
     steps: [
-      '<b>1. Ajouter un achat</b>\nOuvrez DEADLINE et enregistrez le produit, le magasin, le prix et la date d’achat. Vous pourrez joindre un reçu.',
+      '<b>1. Ajouter un achat</b>\nOuvrez « Achats et retours » et enregistrez le produit, le magasin, le prix et la date d’achat. Vous pourrez joindre un reçu.',
       '<b>2. Protéger vos achats</b>\nIndiquez la date limite de retour et la fin de garantie. SAVEGUARD vous aide à garder ces échéances en tête.',
-      '<b>3. Suivre les abonnements</b>\nDans SUBZERO, ajoutez le service, le prix, la fréquence et la prochaine date de paiement. Pensez aux essais gratuits.',
+      '<b>3. Suivre les abonnements</b>\nDans « Abonnements et paiements », ajoutez le service, le prix, la fréquence et la prochaine date de paiement. Pensez aux essais gratuits.',
       '<b>4. Ne rien manquer</b>\nConsultez le calendrier financier et activez les rappels. La langue se modifie dans les paramètres.'
     ],
     next: 'Suivant →', back: '← Retour', finish: 'Terminer ✓',
@@ -202,9 +202,9 @@ const tutorialCopy: Record<Language, TutorialCopy> = {
   it: {
     title: 'GUIDA RAPIDA',
     steps: [
-      '<b>1. Aggiungi un acquisto</b>\nApri DEADLINE e salva prodotto, negozio, prezzo e data di acquisto. In seguito potrai allegare lo scontrino.',
+      '<b>1. Aggiungi un acquisto</b>\nApri «Acquisti e resi» e salva prodotto, negozio, prezzo e data di acquisto. In seguito potrai allegare lo scontrino.',
       '<b>2. Proteggi i tuoi acquisti</b>\nImposta la scadenza del reso e la fine della garanzia. SAVEGUARD ti aiuta a ricordare le date importanti.',
-      '<b>3. Controlla gli abbonamenti</b>\nIn SUBZERO aggiungi servizio, prezzo, frequenza e prossima data di pagamento. Segna anche le prove gratuite.',
+      '<b>3. Controlla gli abbonamenti</b>\nIn «Abbonamenti e pagamenti» aggiungi servizio, prezzo, frequenza e prossima data di pagamento. Segna anche le prove gratuite.',
       '<b>4. Non perdere nulla</b>\nControlla il calendario finanziario e attiva i promemoria. Puoi cambiare lingua nelle impostazioni.'
     ],
     next: 'Avanti →', back: '← Indietro', finish: 'Fine ✓',
@@ -213,9 +213,9 @@ const tutorialCopy: Record<Language, TutorialCopy> = {
   pt: {
     title: 'INÍCIO RÁPIDO',
     steps: [
-      '<b>1. Adicione uma compra</b>\nAbra DEADLINE e salve o produto, a loja, o preço e a data da compra. Depois poderá anexar o recibo.',
+      '<b>1. Adicione uma compra</b>\nAbra «Compras e devoluções» e salve o produto, a loja, o preço e a data da compra. Depois poderá anexar o recibo.',
       '<b>2. Proteja suas compras</b>\nDefina o prazo de devolução e o fim da garantia. O SAVEGUARD ajuda você a lembrar dessas datas.',
-      '<b>3. Acompanhe assinaturas</b>\nNo SUBZERO, adicione o serviço, o preço, a frequência e a próxima data de cobrança. Inclua também os testes gratuitos.',
+      '<b>3. Acompanhe assinaturas</b>\nEm «Assinaturas e pagamentos», adicione o serviço, o preço, a frequência e a próxima data de cobrança. Inclua também os testes gratuitos.',
       '<b>4. Não perca nada</b>\nConsulte o calendário financeiro e ative os lembretes. Você pode mudar o idioma nas configurações.'
     ],
     next: 'Próximo →', back: '← Voltar', finish: 'Concluir ✓',
@@ -224,9 +224,9 @@ const tutorialCopy: Record<Language, TutorialCopy> = {
   tr: {
     title: 'HIZLI BAŞLANGIÇ',
     steps: [
-      '<b>1. Alışveriş ekleyin</b>\nDEADLINE bölümünü açın; ürünü, mağazayı, fiyatı ve alışveriş tarihini kaydedin. Daha sonra fiş ekleyebilirsiniz.',
+      '<b>1. Alışveriş ekleyin</b>\n«Alışverişler ve iadeler» bölümünü açın; ürünü, mağazayı, fiyatı ve alışveriş tarihini kaydedin. Daha sonra fiş ekleyebilirsiniz.',
       '<b>2. Alışverişlerinizi koruyun</b>\nİade son tarihini ve garanti bitişini belirleyin. SAVEGUARD önemli tarihleri hatırlamanıza yardımcı olur.',
-      '<b>3. Abonelikleri takip edin</b>\nSUBZERO bölümüne hizmeti, fiyatı, ödeme aralığını ve sonraki ödeme tarihini ekleyin. Ücretsiz denemeleri de belirtin.',
+      '<b>3. Abonelikleri takip edin</b>\n«Abonelikler ve ödemeler» bölümüne hizmeti, fiyatı, ödeme aralığını ve sonraki ödeme tarihini ekleyin. Ücretsiz denemeleri de belirtin.',
       '<b>4. Önemli tarihleri kaçırmayın</b>\nFinans takvimini kontrol edin ve hatırlatıcıları açın. Dili Ayarlar bölümünden değiştirebilirsiniz.'
     ],
     next: 'İleri →', back: '← Geri', finish: 'Bitir ✓',
