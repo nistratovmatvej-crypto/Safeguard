@@ -226,7 +226,10 @@ async function handleMessage(update: NonNullable<Update['message']>) {
   const user = await getUser(message.from);
   const lang = languageOf(user.languageCode);
   const raw = message.text.trim();
-  const command = raw.startsWith('/') ? (raw.split(/\s+/)[0] ?? '').replace(/^\//, '').split('@')[0].toLowerCase() : localizedCommands[raw];
+  const firstToken = raw.split(/\s+/).at(0) ?? '';
+  const command = raw.startsWith('/')
+    ? (firstToken.replace(/^\//, '').split('@').at(0) ?? '').toLowerCase()
+    : localizedCommands[raw];
   if (!command) return;
 
   if (command === 'settings') return showSettings(message.chat.id, lang);
