@@ -36,7 +36,7 @@ const copy: Record<Language, Translation> = {
     calendar: 'Финансовый календарь\nЗдесь будут отображаться сроки возврата, гарантии и даты платежей.',
     settings: 'Настройки\nВыбери язык интерфейса. Валюту можно будет настроить в приложении.',
     language: 'Выбери язык SAVEGUARD:',
-    languageSaved: 'Язык изменён на русский.',
+    languageSaved: 'Язык изменён на русский.', languageAuto: '🌐 Язык Telegram',
     open: 'Открыть SAVEGUARD',
     dashboardBtn: '📊 Обзор', deadlineBtn: '🧾 Покупки', subzeroBtn: '❄️ Подписки', calendarBtn: '🗓 Календарь', settingsBtn: '⚙️ Настройки', helpBtn: '❔ Помощь'
   },
@@ -49,7 +49,7 @@ const copy: Record<Language, Translation> = {
     calendar: 'Financial calendar\nReturn deadlines, warranty dates and upcoming payments will appear here.',
     settings: 'Settings\nChoose your interface language. Currency settings will be available in the app.',
     language: 'Choose your SAVEGUARD language:',
-    languageSaved: 'Language changed to English.',
+    languageSaved: 'Language changed to English.', languageAuto: '🌐 Telegram language',
     open: 'Open SAVEGUARD',
     dashboardBtn: '📊 Dashboard', deadlineBtn: '🧾 Purchases', subzeroBtn: '❄️ Subscriptions', calendarBtn: '🗓 Calendar', settingsBtn: '⚙️ Settings', helpBtn: '❔ Help'
   },
@@ -62,7 +62,7 @@ const copy: Record<Language, Translation> = {
     calendar: 'Finanzkalender\nHier erscheinen Rückgabefristen, Garantietermine und anstehende Zahlungen.',
     settings: 'Einstellungen\nWähle deine Sprache. Die Währung kannst du später in der App festlegen.',
     language: 'Wähle deine SAVEGUARD-Sprache:',
-    languageSaved: 'Sprache auf Deutsch geändert.',
+    languageSaved: 'Sprache auf Deutsch geändert.', languageAuto: '🌐 Telegram-Sprache',
     open: 'SAVEGUARD öffnen',
     dashboardBtn: '📊 Übersicht', deadlineBtn: '🧾 Käufe', subzeroBtn: '❄️ Abos', calendarBtn: '🗓 Kalender', settingsBtn: '⚙️ Einstellungen', helpBtn: '❔ Hilfe'
   },
@@ -75,7 +75,7 @@ const copy: Record<Language, Translation> = {
     calendar: 'Calendario financiero\nAquí aparecerán las fechas de devolución, garantías y próximos pagos.',
     settings: 'Ajustes\nElige el idioma de la interfaz. La moneda se podrá configurar en la aplicación.',
     language: 'Elige el idioma de SAVEGUARD:',
-    languageSaved: 'Idioma cambiado a español.',
+    languageSaved: 'Idioma cambiado a español.', languageAuto: '🌐 Idioma de Telegram',
     open: 'Abrir SAVEGUARD',
     dashboardBtn: '📊 Resumen', deadlineBtn: '🧾 Compras', subzeroBtn: '❄️ Suscripciones', calendarBtn: '🗓 Calendario', settingsBtn: '⚙️ Ajustes', helpBtn: '❔ Ayuda'
   },
@@ -88,7 +88,7 @@ const copy: Record<Language, Translation> = {
     calendar: 'Calendrier financier\nLes dates de retour, garanties et prochains paiements apparaîtront ici.',
     settings: 'Paramètres\nChoisissez la langue de l’interface. La devise sera configurable dans l’application.',
     language: 'Choisissez la langue de SAVEGUARD :',
-    languageSaved: 'La langue est maintenant le français.',
+    languageSaved: 'La langue est maintenant le français.', languageAuto: '🌐 Langue Telegram',
     open: 'Ouvrir SAVEGUARD',
     dashboardBtn: '📊 Aperçu', deadlineBtn: '🧾 Achats', subzeroBtn: '❄️ Abonnements', calendarBtn: '🗓 Calendrier', settingsBtn: '⚙️ Paramètres', helpBtn: '❔ Aide'
   },
@@ -101,7 +101,7 @@ const copy: Record<Language, Translation> = {
     calendar: 'Calendario finanziario\nQui appariranno scadenze dei resi, garanzie e prossimi pagamenti.',
     settings: 'Impostazioni\nScegli la lingua dell’interfaccia. La valuta sarà configurabile nell’app.',
     language: 'Scegli la lingua di SAVEGUARD:',
-    languageSaved: 'Lingua impostata su italiano.',
+    languageSaved: 'Lingua impostata su italiano.', languageAuto: '🌐 Lingua Telegram',
     open: 'Apri SAVEGUARD',
     dashboardBtn: '📊 Riepilogo', deadlineBtn: '🧾 Acquisti', subzeroBtn: '❄️ Abbonamenti', calendarBtn: '🗓 Calendario', settingsBtn: '⚙️ Impostazioni', helpBtn: '❔ Aiuto'
   },
@@ -114,7 +114,7 @@ const copy: Record<Language, Translation> = {
     calendar: 'Calendário financeiro\nOs prazos de devolução, garantias e próximos pagamentos aparecerão aqui.',
     settings: 'Configurações\nEscolha o idioma da interface. A moeda poderá ser configurada no aplicativo.',
     language: 'Escolha o idioma do SAVEGUARD:',
-    languageSaved: 'Idioma alterado para português.',
+    languageSaved: 'Idioma alterado para português.', languageAuto: '🌐 Idioma do Telegram',
     open: 'Abrir SAVEGUARD',
     dashboardBtn: '📊 Visão geral', deadlineBtn: '🧾 Compras', subzeroBtn: '❄️ Assinaturas', calendarBtn: '🗓 Calendário', settingsBtn: '⚙️ Configurações', helpBtn: '❔ Ajuda'
   },
@@ -127,7 +127,7 @@ const copy: Record<Language, Translation> = {
     calendar: 'Finans takvimi\nİade tarihleri, garanti süreleri ve yaklaşan ödemeler burada gösterilecek.',
     settings: 'Ayarlar\nArayüz dilini seçin. Para birimi uygulamada ayarlanabilecek.',
     language: 'SAVEGUARD dilini seçin:',
-    languageSaved: 'Dil Türkçe olarak ayarlandı.',
+    languageSaved: 'Dil Türkçe olarak ayarlandı.', languageAuto: '🌐 Telegram dili',
     open: 'SAVEGUARD uygulamasını aç',
     dashboardBtn: '📊 Genel bakış', deadlineBtn: '🧾 Alışverişler', subzeroBtn: '❄️ Abonelikler', calendarBtn: '🗓 Takvim', settingsBtn: '⚙️ Ayarlar', helpBtn: '❔ Yardım'
   }
@@ -180,44 +180,68 @@ function keyboard(lang: Language) {
   };
 }
 
-function languageKeyboard() {
+function languageKeyboard(lang: Language) {
   return {
     inline_keyboard: [
       languages.slice(0, 2).map(x => ({ text: x.label, callback_data: 'lang:' + x.code })),
       languages.slice(2, 4).map(x => ({ text: x.label, callback_data: 'lang:' + x.code })),
       languages.slice(4, 6).map(x => ({ text: x.label, callback_data: 'lang:' + x.code })),
-      languages.slice(6, 8).map(x => ({ text: x.label, callback_data: 'lang:' + x.code }))
+      languages.slice(6, 8).map(x => ({ text: x.label, callback_data: 'lang:' + x.code })),
+      [{ text: copy[lang].languageAuto, callback_data: 'lang:auto' }]
     ]
   };
 }
 
 async function getUser(tg: TelegramUser) {
-  return prisma.user.upsert({
-    where: { telegramId: String(tg.id) },
-    create: {
-      telegramId: String(tg.id),
-      firstName: tg.first_name ?? 'there',
+  const telegramId = String(tg.id);
+  const existing = await prisma.user.findUnique({ where: { telegramId } });
+  if (!existing) {
+    return prisma.user.create({
+      data: {
+        telegramId,
+        firstName: (tg.first_name ?? '').trim() || 'there',
+        lastName: tg.last_name,
+        username: tg.username,
+        languageCode: languageOf(tg.language_code)
+      }
+    });
+  }
+  return prisma.user.update({
+    where: { telegramId },
+    data: {
+      firstName: (tg.first_name ?? '').trim() || 'there',
       lastName: tg.last_name,
       username: tg.username,
-      languageCode: languageOf(tg.language_code)
-    },
-    update: {
-      firstName: tg.first_name ?? 'there',
-      lastName: tg.last_name,
-      username: tg.username
+      ...(existing.languageManuallySelected ? {} : { languageCode: languageOf(tg.language_code) })
     }
   });
+}
+
+function welcomeText(lang: Language, tg: TelegramUser) {
+  const name = (tg.first_name ?? '').trim();
+  return copy[lang].welcome.replace(/,\\s*\\{name\\}/, name ? ', ' + name : '').replace(/\\{name\\}/g, '');
+}
+
+function escapeHtml(value: string) {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function formatMessage(value: string) {
+  const escaped = escapeHtml(value);
+  const splitAt = escaped.indexOf('\\n');
+  if (splitAt < 0) return '<b>' + escaped + '</b>';
+  return '<b>' + escaped.slice(0, splitAt) + '</b>' + escaped.slice(splitAt);
 }
 
 async function send(chatId: number, text: string, lang: Language, extra: Record<string, unknown> = {}) {
   const reply_markup = env.MINI_APP_URL
     ? { ...keyboard(lang), keyboard: [...(keyboard(lang).keyboard as { text: string }[][]), [{ text: copy[lang].open, web_app: { url: env.MINI_APP_URL } }]] }
     : keyboard(lang);
-  await telegram('sendMessage', { chat_id: chatId, text, reply_markup, ...extra });
+  await telegram('sendMessage', { chat_id: chatId, text: formatMessage(text), parse_mode: 'HTML', reply_markup, ...extra });
 }
 
 async function showSettings(chatId: number, lang: Language) {
-  await send(chatId, copy[lang].settings + '\n\n' + copy[lang].language, lang, { reply_markup: languageKeyboard() });
+  await send(chatId, copy[lang].settings + '\n\n' + copy[lang].language, lang, { reply_markup: languageKeyboard(lang) });
 }
 
 async function handleMessage(update: NonNullable<Update['message']>) {
@@ -234,8 +258,7 @@ async function handleMessage(update: NonNullable<Update['message']>) {
 
   if (command === 'settings') return showSettings(message.chat.id, lang);
   if (command === 'start') {
-    const name = message.from.first_name ?? 'there';
-    const text = copy[lang].welcome.replace('{name}', name);
+    const text = welcomeText(lang, message.from);
     await send(message.chat.id, text, lang);
     return;
   }
