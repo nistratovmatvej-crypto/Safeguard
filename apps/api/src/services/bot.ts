@@ -261,7 +261,8 @@ async function handleTutorialCallback(query: NonNullable<Update['callback_query'
     await telegram('editMessageText', {
       chat_id: query.message.chat.id,
       message_id: query.message.message_id,
-      text: tutorialCopy[languageOf((await prisma.user.findUnique({ where: { telegramId: String(query.from.id) } }))?.languageCode)].done
+      text: tutorialCopy[languageOf((await prisma.user.findUnique({ where: { telegramId: String(query.from.id) } }))?.languageCode)].done,
+      reply_markup: { inline_keyboard: [] }
     });
     return;
   }
@@ -379,7 +380,8 @@ function escapeHtml(value: string) {
 }
 
 function formatMessage(value: string) {
-  const lines = escapeHtml(value).split('\n');
+  const safe = escapeHtml(value).replace(/&lt;tg-emoji emoji-id="(\\d+)"&gt;(.*?)&lt;\\/tg-emoji&gt;/g, '<tg-emoji emoji-id="$1">$2</tg-emoji>');
+  const lines = safe.split('\n');
   return lines.map((line, index) => {
     if (!line) return '';
     if (index === 0) return '<b>' + line + '</b>';
@@ -410,7 +412,7 @@ async function send(chatId: number, text: string, lang: Language, extra: Record<
 }
 
 async function sendWelcome(chatId: number, tg: TelegramUser, lang: Language) {
-  await send(chatId, welcomeText(lang, tg), lang);
+  await send(chatId, premiumMark('🛡️') + ' ' + welcomeText(lang, tg), lang);
   await sendTutorialStep(chatId, lang, 0);
 }
 
