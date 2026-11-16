@@ -229,17 +229,59 @@ function escapeHtml(value: string) {
 }
 
 function formatMessage(value: string) {
-  const escaped = escapeHtml(value);
-  const splitAt = escaped.indexOf('\n');
-  if (splitAt < 0) return '<b>' + escaped + '</b>';
-  return '<b>' + escaped.slice(0, splitAt) + '</b>' + escaped.slice(splitAt);
+  const lines = escapeHtml(value).split('\n');
+  return lines.map((line, index) => {
+    if (!line) return '';
+    if (index === 0) return '<b>' + line + '</b>';
+    if (/^(DEADLINE|SUBZERO|SAVEGUARD)$/i.test(line)) return '<b>' + line + '</b>';
+    const command = line.match(/^(\/[^ ]+)\s+—\s+(.*)$/);
+    if (command) return '<code>' + command[1] + '</code> — ' + command[2];
+    return line;
+  }).join('\n');
+}
+
+function premiumMark(fallback = '✦') {
+  const id = env.SAVEGUARD_PREMIUM_EMOJI_ID;
+  return id ? '<tg-emoji emoji-id="' + id + '">' + fallback + '</tg-emoji>' : fallback;
 }
 
 async function send(chatId: number, text: string, lang: Language, extra: Record<string, unknown> = {}) {
   const reply_markup = env.MINI_APP_URL
     ? { ...keyboard(lang), keyboard: [...(keyboard(lang).keyboard as { text: string }[][]), [{ text: copy[lang].open, web_app: { url: env.MINI_APP_URL } }]] }
     : keyboard(lang);
-  await telegram('sendMessage', { chat_id: chatId, text: formatMessage(text), parse_mode: 'HTML', reply_markup, ...extra });
+  await telegram('sendMessage', {
+    chat_id: chatId,
+    text: formatMessage(text),
+    parse_mode: 'HTML',
+    reply_markup,
+    link_preview_options: { is_disabled: true },
+    ...extra
+  });
+}
+
+async function sendWelcome(chatId: number, tg: TelegramUser, lang: Language) {
+  const text = welcomeText(lang, tg);
+  if (env.WELCOME_GIF_URL) {
+    const reply_markup = env.MINI_APP_URL
+      ? { inline_keyboard: [[{ text: copy[lang].open, web_app: { url: env.MINI_APP_URL } }]] }
+      : undefined;
+    await telegram('sendAnimation', {
+      chat_id: chatId,
+      animation: env.WELCOME_GIF_URL,
+      caption: premiumMark('🛡️') + ' ' + formatMessage(text),
+      parse_mode: 'HTML',
+      reply_markup
+    });
+    await telegram('sendMessage', {
+      chat_id: chatId,
+      text: lang === 'ru'
+        ? 'Выбери раздел — кнопки уже доступны в меню снизу.'
+        : 'Choose a section — the menu buttons are available below.',
+      reply_markup: keyboard(lang)
+    });
+    return;
+  }
+  await send(chatId, text, lang);
 }
 
 async function showSettings(chatId: number, lang: Language) {
@@ -260,8 +302,7 @@ async function handleMessage(update: NonNullable<Update['message']>) {
 
   if (command === 'settings') return showSettings(message.chat.id, lang);
   if (command === 'start') {
-    const text = welcomeText(lang, message.from);
-    await send(message.chat.id, text, lang);
+    await sendWelcome(message.chat.id, message.from, lang);
     return;
   }
   if (command === 'help' || commandNames.includes(command as Command)) {
@@ -293,7 +334,7 @@ async function handleCallback(query: NonNullable<Update['callback_query']>) {
     ? copy[selected].languageAuto + ' ✓'
     : copy[selected].languageSaved;
   await telegram('answerCallbackQuery', { callback_query_id: query.id, text: confirmation });
-  await send(chatId, confirmation + '\n\n' + welcomeText(selected, query.from), selected);
+  await send(chatId, premiumMark('🌐') + ' ' + confirmation + '\n\n' + welcomeText(selected, query.from), selected);
 }
 
 async function registerTelegramMenu() {
