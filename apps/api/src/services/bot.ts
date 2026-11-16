@@ -240,7 +240,7 @@ async function handleMessage(update: NonNullable<Update['message']>) {
     return;
   }
   if (command === 'help' || commandNames.includes(command as Command)) {
-    const key = command as Command;
+    const key = command as Exclude<Command, 'start'>;
     await send(message.chat.id, copy[lang][key], lang);
   }
 }
