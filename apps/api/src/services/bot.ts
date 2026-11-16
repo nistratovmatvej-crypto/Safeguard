@@ -6,7 +6,7 @@ type TelegramUser = { id: number; first_name?: string; last_name?: string; usern
 type Update = {
   update_id: number;
   message?: { text?: string; chat: { id: number }; from?: TelegramUser };
-  callback_query?: { id: string; data?: string; from: TelegramUser; message?: { chat: { id: number } } };
+  callback_query?: { id: string; data?: string; from: TelegramUser; message?: { message_id: number; chat: { id: number } } };
 };
 
 const api = (method: string) =>
@@ -132,6 +132,156 @@ const copy: Record<Language, Translation> = {
     dashboardBtn: '📊 Genel bakış', deadlineBtn: '🧾 Alışverişler', subzeroBtn: '❄️ Abonelikler', calendarBtn: '🗓 Takvim', settingsBtn: '⚙️ Ayarlar', helpBtn: '❔ Yardım'
   }
 };
+
+
+type TutorialCopy = {
+  title: string;
+  steps: [string, string, string, string];
+  next: string;
+  back: string;
+  finish: string;
+  done: string;
+};
+
+const tutorialCopy: Record<Language, TutorialCopy> = {
+  ru: {
+    title: 'БЫСТРЫЙ СТАРТ',
+    steps: [
+      '<b>1. Добавь покупку</b>\nОткрой DEADLINE и сохрани название товара, магазин, цену и дату покупки. Позже можно будет прикрепить чек.',
+      '<b>2. Защити свои покупки</b>\nУкажи последний день возврата и дату окончания гарантии. SAVEGUARD поможет не забыть важные сроки.',
+      '<b>3. Контролируй подписки</b>\nВ SUBZERO добавь сервис, стоимость, период оплаты и дату следующего списания. Отдельно отметь пробный период.',
+      '<b>4. Не пропускай важное</b>\nПроверяй финансовый календарь и настрой напоминания. Язык можно изменить в настройках бота.'
+    ],
+    next: 'Далее →', back: '← Назад', finish: 'Готово ✓',
+    done: 'Отлично! Обучение завершено. Выбирай раздел в меню снизу — начнём наводить порядок в финансах.'
+  },
+  en: {
+    title: 'QUICK START',
+    steps: [
+      '<b>1. Add a purchase</b>\nOpen DEADLINE and save the item, store, price and purchase date. You will be able to attach a receipt.',
+      '<b>2. Protect your purchases</b>\nSet the last return date and warranty expiry. SAVEGUARD helps you keep important dates in sight.',
+      '<b>3. Track subscriptions</b>\nIn SUBZERO, add the service, price, billing interval and next payment date. Mark free trials too.',
+      '<b>4. Stay on top of things</b>\nCheck your financial calendar and enable reminders. You can change the bot language in Settings.'
+    ],
+    next: 'Next →', back: '← Back', finish: 'Finish ✓',
+    done: 'All set! Tutorial completed. Choose a section from the menu below to get started.'
+  },
+  de: {
+    title: 'SCHNELLSTART',
+    steps: [
+      '<b>1. Kauf hinzufügen</b>\nÖffne DEADLINE und speichere Produkt, Geschäft, Preis und Kaufdatum. Einen Beleg kannst du später anhängen.',
+      '<b>2. Käufe absichern</b>\nLege die Rückgabefrist und das Garantieende fest. SAVEGUARD hilft dir, wichtige Termine im Blick zu behalten.',
+      '<b>3. Abos verfolgen</b>\nFüge in SUBZERO Dienst, Preis, Zahlungsintervall und nächste Zahlung hinzu. Markiere auch kostenlose Testphasen.',
+      '<b>4. Nichts verpassen</b>\nPrüfe deinen Finanzkalender und aktiviere Erinnerungen. Die Sprache änderst du in den Einstellungen.'
+    ],
+    next: 'Weiter →', back: '← Zurück', finish: 'Fertig ✓',
+    done: 'Geschafft! Die Einführung ist abgeschlossen. Wähle unten einen Bereich aus.'
+  },
+  es: {
+    title: 'INICIO RÁPIDO',
+    steps: [
+      '<b>1. Añade una compra</b>\nAbre DEADLINE y guarda el producto, la tienda, el precio y la fecha. Después podrás adjuntar el recibo.',
+      '<b>2. Protege tus compras</b>\nIndica la fecha límite de devolución y el fin de la garantía. SAVEGUARD te ayudará a recordar las fechas importantes.',
+      '<b>3. Controla tus suscripciones</b>\nEn SUBZERO añade el servicio, el precio, la frecuencia y la próxima fecha de pago. Incluye las pruebas gratuitas.',
+      '<b>4. No olvides nada</b>\nConsulta el calendario financiero y activa los recordatorios. Puedes cambiar el idioma en Ajustes.'
+    ],
+    next: 'Siguiente →', back: '← Atrás', finish: 'Terminar ✓',
+    done: '¡Perfecto! Has terminado el tutorial. Elige una sección en el menú inferior.'
+  },
+  fr: {
+    title: 'PRISE EN MAIN',
+    steps: [
+      '<b>1. Ajouter un achat</b>\nOuvrez DEADLINE et enregistrez le produit, le magasin, le prix et la date d’achat. Vous pourrez joindre un reçu.',
+      '<b>2. Protéger vos achats</b>\nIndiquez la date limite de retour et la fin de garantie. SAVEGUARD vous aide à garder ces échéances en tête.',
+      '<b>3. Suivre les abonnements</b>\nDans SUBZERO, ajoutez le service, le prix, la fréquence et la prochaine date de paiement. Pensez aux essais gratuits.',
+      '<b>4. Ne rien manquer</b>\nConsultez le calendrier financier et activez les rappels. La langue se modifie dans les paramètres.'
+    ],
+    next: 'Suivant →', back: '← Retour', finish: 'Terminer ✓',
+    done: 'Parfait ! Le tutoriel est terminé. Choisissez une rubrique dans le menu ci-dessous.'
+  },
+  it: {
+    title: 'GUIDA RAPIDA',
+    steps: [
+      '<b>1. Aggiungi un acquisto</b>\nApri DEADLINE e salva prodotto, negozio, prezzo e data di acquisto. In seguito potrai allegare lo scontrino.',
+      '<b>2. Proteggi i tuoi acquisti</b>\nImposta la scadenza del reso e la fine della garanzia. SAVEGUARD ti aiuta a ricordare le date importanti.',
+      '<b>3. Controlla gli abbonamenti</b>\nIn SUBZERO aggiungi servizio, prezzo, frequenza e prossima data di pagamento. Segna anche le prove gratuite.',
+      '<b>4. Non perdere nulla</b>\nControlla il calendario finanziario e attiva i promemoria. Puoi cambiare lingua nelle impostazioni.'
+    ],
+    next: 'Avanti →', back: '← Indietro', finish: 'Fine ✓',
+    done: 'Perfetto! Tutorial completato. Scegli una sezione dal menu qui sotto.'
+  },
+  pt: {
+    title: 'INÍCIO RÁPIDO',
+    steps: [
+      '<b>1. Adicione uma compra</b>\nAbra DEADLINE e salve o produto, a loja, o preço e a data da compra. Depois poderá anexar o recibo.',
+      '<b>2. Proteja suas compras</b>\nDefina o prazo de devolução e o fim da garantia. O SAVEGUARD ajuda você a lembrar dessas datas.',
+      '<b>3. Acompanhe assinaturas</b>\nNo SUBZERO, adicione o serviço, o preço, a frequência e a próxima data de cobrança. Inclua também os testes gratuitos.',
+      '<b>4. Não perca nada</b>\nConsulte o calendário financeiro e ative os lembretes. Você pode mudar o idioma nas configurações.'
+    ],
+    next: 'Próximo →', back: '← Voltar', finish: 'Concluir ✓',
+    done: 'Pronto! Tutorial concluído. Escolha uma seção no menu abaixo.'
+  },
+  tr: {
+    title: 'HIZLI BAŞLANGIÇ',
+    steps: [
+      '<b>1. Alışveriş ekleyin</b>\nDEADLINE bölümünü açın; ürünü, mağazayı, fiyatı ve alışveriş tarihini kaydedin. Daha sonra fiş ekleyebilirsiniz.',
+      '<b>2. Alışverişlerinizi koruyun</b>\nİade son tarihini ve garanti bitişini belirleyin. SAVEGUARD önemli tarihleri hatırlamanıza yardımcı olur.',
+      '<b>3. Abonelikleri takip edin</b>\nSUBZERO bölümüne hizmeti, fiyatı, ödeme aralığını ve sonraki ödeme tarihini ekleyin. Ücretsiz denemeleri de belirtin.',
+      '<b>4. Önemli tarihleri kaçırmayın</b>\nFinans takvimini kontrol edin ve hatırlatıcıları açın. Dili Ayarlar bölümünden değiştirebilirsiniz.'
+    ],
+    next: 'İleri →', back: '← Geri', finish: 'Bitir ✓',
+    done: 'Harika! Eğitim tamamlandı. Aşağıdaki menüden bir bölüm seçin.'
+  }
+};
+
+function tutorialKeyboard(lang: Language, step: number) {
+  const t = tutorialCopy[lang];
+  const buttons: { text: string; callback_data: string }[] = [];
+  if (step > 0) buttons.push({ text: t.back, callback_data: 'tutorial:' + (step - 1) });
+  if (step < 3) buttons.push({ text: t.next, callback_data: 'tutorial:' + (step + 1) });
+  else buttons.push({ text: t.finish, callback_data: 'tutorial:done' });
+  return { inline_keyboard: [buttons] };
+}
+
+async function sendTutorialStep(chatId: number, lang: Language, step: number) {
+  const t = tutorialCopy[lang];
+  await telegram('sendMessage', {
+    chat_id: chatId,
+    text: '<b>' + t.title + ' · ' + (step + 1) + '/4</b>\\n\\n' + t.steps[step],
+    parse_mode: 'HTML',
+    reply_markup: tutorialKeyboard(lang, step)
+  });
+}
+
+async function handleTutorialCallback(query: NonNullable<Update['callback_query']>) {
+  if (!query.message || !query.data?.startsWith('tutorial:')) return;
+  const [_, value] = query.data.split(':');
+  if (value === 'done') {
+    await telegram('answerCallbackQuery', { callback_query_id: query.id });
+    await telegram('editMessageText', {
+      chat_id: query.message.chat.id,
+      message_id: query.message.message_id,
+      text: tutorialCopy[languageOf((await prisma.user.findUnique({ where: { telegramId: String(query.from.id) } }))?.languageCode)].done
+    });
+    return;
+  }
+  const step = Number(value);
+  if (!Number.isInteger(step) || step < 0 || step > 3) {
+    await telegram('answerCallbackQuery', { callback_query_id: query.id, text: 'Invalid tutorial step' });
+    return;
+  }
+  const user = await prisma.user.findUnique({ where: { telegramId: String(query.from.id) } });
+  const lang = languageOf(user?.languageCode);
+  const t = tutorialCopy[lang];
+  await telegram('answerCallbackQuery', { callback_query_id: query.id });
+  await telegram('editMessageText', {
+    chat_id: query.message.chat.id,
+    message_id: query.message.message_id,
+    text: '<b>' + t.title + ' · ' + (step + 1) + '/4</b>\\n\\n' + t.steps[step],
+    parse_mode: 'HTML',
+    reply_markup: tutorialKeyboard(lang, step)
+  });
+}
 
 const commandNames = ['start', 'dashboard', 'deadline', 'subzero', 'calendar', 'settings', 'help'] as const;
 type Command = typeof commandNames[number];
@@ -260,28 +410,8 @@ async function send(chatId: number, text: string, lang: Language, extra: Record<
 }
 
 async function sendWelcome(chatId: number, tg: TelegramUser, lang: Language) {
-  const text = welcomeText(lang, tg);
-  if (env.WELCOME_GIF_URL) {
-    const reply_markup = env.MINI_APP_URL
-      ? { inline_keyboard: [[{ text: copy[lang].open, web_app: { url: env.MINI_APP_URL } }]] }
-      : undefined;
-    await telegram('sendAnimation', {
-      chat_id: chatId,
-      animation: env.WELCOME_GIF_URL,
-      caption: premiumMark('🛡️') + ' ' + formatMessage(text),
-      parse_mode: 'HTML',
-      reply_markup
-    });
-    await telegram('sendMessage', {
-      chat_id: chatId,
-      text: lang === 'ru'
-        ? 'Выбери раздел — кнопки уже доступны в меню снизу.'
-        : 'Choose a section — the menu buttons are available below.',
-      reply_markup: keyboard(lang)
-    });
-    return;
-  }
-  await send(chatId, text, lang);
+  await send(chatId, welcomeText(lang, tg), lang);
+  await sendTutorialStep(chatId, lang, 0);
 }
 
 async function showSettings(chatId: number, lang: Language) {
@@ -312,6 +442,10 @@ async function handleMessage(update: NonNullable<Update['message']>) {
 }
 
 async function handleCallback(query: NonNullable<Update['callback_query']>) {
+  if (query.data?.startsWith('tutorial:')) {
+    await handleTutorialCallback(query);
+    return;
+  }
   if (!query.data?.startsWith('lang:') || !query.message) return;
   const chatId = query.message.chat.id;
   const useTelegramLanguage = query.data === 'lang:auto';
