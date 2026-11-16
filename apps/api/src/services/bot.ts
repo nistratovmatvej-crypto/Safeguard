@@ -380,7 +380,7 @@ function escapeHtml(value: string) {
 }
 
 function formatMessage(value: string) {
-  const safe = escapeHtml(value).replace(/&lt;tg-emoji emoji-id="(\\d+)"&gt;(.*?)&lt;\\/tg-emoji&gt;/g, '<tg-emoji emoji-id="$1">$2</tg-emoji>');
+  const safe = escapeHtml(value).replace(/&lt;tg-emoji emoji-id="(\d+)"&gt;(.*?)&lt;\/tg-emoji&gt;/g, '<tg-emoji emoji-id="$1">$2</tg-emoji>');
   const lines = safe.split('\n');
   return lines.map((line, index) => {
     if (!line) return '';
