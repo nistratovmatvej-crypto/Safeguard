@@ -219,7 +219,7 @@ async function getUser(tg: TelegramUser) {
 
 function welcomeText(lang: Language, tg: TelegramUser) {
   const name = (tg.first_name ?? '').trim();
-  return copy[lang].welcome.replace(/,\\s*\\{name\\}/, name ? ', ' + name : '').replace(/\\{name\\}/g, '');
+  return copy[lang].welcome.replace(/,\\s*\\{name\\}/, name ? ', ' + name : '').replace(/\{name\}/g, '');
 }
 
 function escapeHtml(value: string) {
@@ -228,7 +228,7 @@ function escapeHtml(value: string) {
 
 function formatMessage(value: string) {
   const escaped = escapeHtml(value);
-  const splitAt = escaped.indexOf('\\n');
+  const splitAt = escaped.indexOf('\n');
   if (splitAt < 0) return '<b>' + escaped + '</b>';
   return '<b>' + escaped.slice(0, splitAt) + '</b>' + escaped.slice(splitAt);
 }
