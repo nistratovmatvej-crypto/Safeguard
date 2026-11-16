@@ -219,7 +219,9 @@ async function getUser(tg: TelegramUser) {
 
 function welcomeText(lang: Language, tg: TelegramUser) {
   const name = (tg.first_name ?? '').trim();
-  return copy[lang].welcome.replace(/,\\s*\\{name\\}/, name ? ', ' + name : '').replace(/\{name\}/g, '');
+  return copy[lang].welcome
+    .replace(/,\s*\{name\}/, name ? ', ' + name : '')
+    .replace(/\{name\}/g, '');
 }
 
 function escapeHtml(value: string) {
@@ -271,14 +273,27 @@ async function handleMessage(update: NonNullable<Update['message']>) {
 async function handleCallback(query: NonNullable<Update['callback_query']>) {
   if (!query.data?.startsWith('lang:') || !query.message) return;
   const chatId = query.message.chat.id;
-  const selected = languageOf(query.data.slice(5));
+  const useTelegramLanguage = query.data === 'lang:auto';
+  const selected = useTelegramLanguage ? languageOf(query.from.language_code) : languageOf(query.data.slice(5));
   await prisma.user.upsert({
     where: { telegramId: String(query.from.id) },
-    create: { telegramId: String(query.from.id), firstName: query.from.first_name ?? 'there', languageCode: selected },
-    update: { languageCode: selected, firstName: query.from.first_name ?? 'there' }
+    create: {
+      telegramId: String(query.from.id),
+      firstName: (query.from.first_name ?? '').trim() || 'there',
+      languageCode: selected,
+      languageManuallySelected: !useTelegramLanguage
+    },
+    update: {
+      languageCode: selected,
+      languageManuallySelected: !useTelegramLanguage,
+      firstName: (query.from.first_name ?? '').trim() || 'there'
+    }
   });
-  await telegram('answerCallbackQuery', { callback_query_id: query.id, text: copy[selected].languageSaved });
-  await send(chatId, copy[selected].languageSaved + '\n\n' + copy[selected].welcome.replace('{name}', query.from.first_name ?? 'there'), selected);
+  const confirmation = useTelegramLanguage
+    ? copy[selected].languageAuto + ' ✓'
+    : copy[selected].languageSaved;
+  await telegram('answerCallbackQuery', { callback_query_id: query.id, text: confirmation });
+  await send(chatId, confirmation + '\n\n' + welcomeText(selected, query.from), selected);
 }
 
 async function registerTelegramMenu() {
